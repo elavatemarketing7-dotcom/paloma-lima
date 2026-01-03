@@ -1,11 +1,11 @@
 
-import React, { useState, useCallback, useEffect } from 'react';
-import { AppState, QuizAnswers } from './types';
-import { EXPERT_DATA } from './constants';
-import LandingPage from './components/LandingPage';
-import Quiz from './components/Quiz';
-import ResultPage from './components/ResultPage';
-import InitialOverlay from './components/InitialOverlay';
+import React, { useState, useCallback } from 'react';
+import { AppState, QuizAnswers } from './types.ts';
+import { EXPERT_DATA } from './constants.ts';
+import LandingPage from './components/LandingPage.tsx';
+import Quiz from './components/Quiz.tsx';
+import ResultPage from './components/ResultPage.tsx';
+import InitialOverlay from './components/InitialOverlay.tsx';
 
 const App: React.FC = () => {
   const [currentState, setCurrentState] = useState<AppState>(AppState.INITIAL);
@@ -35,7 +35,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen w-full relative overflow-x-hidden">
-      {/* Background stays active to preserve visual continuity */}
       <LandingPage onCtaClick={() => window.open(`https://wa.me/${EXPERT_DATA.whatsapp}`, '_blank')} />
 
       {currentState === AppState.INITIAL && (

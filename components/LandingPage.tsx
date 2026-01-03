@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { EXPERT_DATA, IMAGES } from '../constants';
-import { User, ShieldCheck, Sparkles, Heart, MessageSquare, ArrowRight, Instagram } from 'lucide-react';
+import { EXPERT_DATA, IMAGES } from '../constants.ts';
+import { User, ShieldCheck, Sparkles, Heart, MessageSquare, ArrowRight, Instagram, CheckCircle } from 'lucide-react';
 
 interface LandingPageProps {
   onCtaClick: () => void;
@@ -123,8 +123,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
         </div>
       </section>
 
-      {/* ... Restante das seções permanecem iguais, apenas atualizando rodapé ... */}
-      
       {/* 3. RESULTADOS REAIS */}
       <section className="py-32 bg-[#ece9e6]">
         <div className="px-6 md:px-12 max-w-6xl mx-auto space-y-20">
@@ -150,6 +148,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
               </div>
             ))}
           </div>
+          <p className="text-center text-sm text-[#1c1a18]/40 italic max-w-lg mx-auto leading-relaxed">
+            Respeitamos a individualidade de cada face. Resultados podem variar conforme a anatomia e hábitos de cada paciente.
+          </p>
         </div>
       </section>
 
@@ -197,11 +198,41 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
         </div>
       </section>
 
+      {/* 6. COMO FUNCIONA A PRIMEIRA CONSULTA */}
+      <section className="py-32 px-6 bg-white">
+        <div className="max-w-6xl mx-auto space-y-20">
+          <div className="text-center space-y-4">
+            <span className="text-[#a38c6d] font-bold text-[12px] uppercase tracking-[0.5em]">Jornada da Paciente</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1c1a18]">Sua transformação em 3 passos</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { step: '01', title: 'Contato VIP', text: 'Você inicia o atendimento pelo WhatsApp, onde nossa equipe entende seu desejo inicial.' },
+              { step: '02', title: 'Agendamento', text: 'Escolhemos o melhor horário para sua avaliação presencial ou online sem compromisso.' },
+              { step: '03', title: 'Avaliação Estética', text: 'Análise facial profunda com a Dra. Paloma para criar seu plano de tratamento exclusivo.' }
+            ].map((item, idx) => (
+              <div key={idx} className="relative p-10 bg-[#ece9e6] rounded-[3rem] border border-white shadow-sm hover:shadow-xl transition-all group">
+                <span className="text-6xl font-serif font-bold text-[#a38c6d]/20 absolute top-6 right-8 group-hover:text-[#a38c6d]/40 transition-colors">{item.step}</span>
+                <h3 className="text-2xl font-serif font-bold text-[#1c1a18] mb-4">{item.title}</h3>
+                <p className="text-[#2a2622]/60 leading-relaxed">{item.text}</p>
+                <div className="mt-6 flex items-center gap-2 text-[#a38c6d] font-bold text-[10px] uppercase tracking-widest">
+                  <CheckCircle className="w-4 h-4" /> Gratuito e Seguro
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 7. MAIS PROVAS */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-[#ece9e6]">
+        <div className="px-6 md:px-12 max-w-6xl mx-auto mb-16 space-y-4 text-center">
+          <span className="text-[#a38c6d] font-bold text-[12px] uppercase tracking-[0.5em]">O Mundo Paloma Lima</span>
+          <h2 className="text-5xl font-serif font-bold text-[#1c1a18]">Bastidores & Autoridade</h2>
+        </div>
         <div className="flex gap-8 overflow-x-auto pb-16 px-6 no-scrollbar snap-x">
           {IMAGES.lifestyle.map((url, idx) => (
-            <div key={idx} className="flex-none w-80 md:w-96 h-[30rem] md:h-[35rem] rounded-[3rem] overflow-hidden shadow-2xl snap-center transition-all hover:scale-[1.02] border-8 border-[#ece9e6]">
+            <div key={idx} className="flex-none w-80 md:w-96 h-[30rem] md:h-[35rem] rounded-[3rem] overflow-hidden shadow-2xl snap-center transition-all hover:scale-[1.02] border-8 border-white">
               <img src={url} alt={`Dra Paloma ${idx}`} className="w-full h-full object-cover" />
             </div>
           ))}
@@ -209,19 +240,34 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
       </section>
 
       {/* 8. CTA FINAL */}
-      <section className="py-40 px-6 bg-[#ece9e6] relative">
+      <section className="py-40 px-6 bg-white relative">
         <div className="max-w-4xl mx-auto text-center space-y-16">
-          <button 
-            onClick={onCtaClick}
-            className="w-full md:w-auto px-20 py-8 bg-[#a38c6d] text-white rounded-full font-bold text-2xl shadow-[0_25px_60px_rgba(163,140,109,0.4)] hover:scale-105 transition-all flex items-center justify-center gap-6 mx-auto tracking-widest border border-white/20"
-          >
-            QUERO MINHA CONSULTA
-            <MessageSquare className="w-8 h-8" />
-          </button>
+          <div className="space-y-8">
+            <h2 className="text-6xl md:text-8xl font-serif font-bold text-[#1c1a18] leading-[0.9]">
+              Beleza que <span className="text-[#a38c6d]">irradia.</span>
+            </h2>
+            <p className="text-2xl md:text-3xl text-[#1c1a18]/40 font-light italic max-w-2xl mx-auto">
+              "Um rosto harmonioso abre portas, eleva sorrisos e transforma a maneira como você encara o mundo."
+            </p>
+          </div>
+          <div className="space-y-10">
+            <button 
+              onClick={onCtaClick}
+              className="w-full md:w-auto px-20 py-8 bg-[#a38c6d] text-white rounded-full font-bold text-2xl shadow-[0_25px_60px_rgba(163,140,109,0.4)] hover:scale-105 transition-all flex items-center justify-center gap-6 mx-auto tracking-widest border border-white/20"
+            >
+              QUERO MINHA CONSULTA
+              <MessageSquare className="w-8 h-8" />
+            </button>
+            <div className="flex items-center justify-center gap-4 text-[#a38c6d] font-bold text-[13px] uppercase tracking-[0.4em]">
+               <Sparkles className="w-5 h-5"/>
+               <span>Avaliação 100% Gratuita</span>
+               <Sparkles className="w-5 h-5"/>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 9. RODAPÉ - Atualizado para Ceará */}
+      {/* 9. RODAPÉ */}
       <footer className="py-32 px-6 bg-[#1c1a18] text-white relative">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 relative z-10">
           <div className="space-y-12">
