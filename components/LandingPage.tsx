@@ -11,65 +11,46 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#ece9e6] text-[#2a2622]">
-      {/* Floating Logo Header */}
-      <nav className="fixed top-0 left-0 right-0 z-[50] p-4 md:p-6 pointer-events-none">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="pointer-events-auto bg-white/90 backdrop-blur-xl p-2 px-4 md:p-3 md:px-6 rounded-2xl border border-white shadow-2xl">
-            <img 
-              src={IMAGES.logo} 
-              alt="Dra Paloma Lima" 
-              className="h-8 md:h-12 w-auto grayscale brightness-0" 
-            />
-          </div>
-          <button 
-            onClick={onCtaClick}
-            className="hidden md:flex bg-[#a38c6d] text-white px-8 py-3 rounded-full font-bold text-sm shadow-xl pointer-events-auto hover:bg-[#8b7759] transition-all tracking-wider border border-white/20"
-          >
-            AGENDE AGORA
-          </button>
-        </div>
-      </nav>
-
-      {/* 1. HERO SECTION */}
+    <div className="bg-[#ece9e6] text-[#2a2622] antialiased overflow-x-hidden">
+      {/* 1. HERO SECTION - Agora começando do topo sem distrações flutuantes */}
       <section className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={IMAGES.hero} 
             alt="Dra. Paloma Lima" 
-            className="w-full h-full object-cover object-[80%_center] md:object-right"
+            className="w-full h-full object-cover object-[75%_center] md:object-right scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18] via-[#1c1a18]/40 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1c1a18]/80 via-[#1c1a18]/20 to-transparent md:from-[#1c1a18]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1c1a18]/70 via-transparent to-transparent md:from-[#1c1a18]/90"></div>
         </div>
 
-        <div className="relative z-10 p-6 md:p-16 max-w-4xl mx-auto w-full mb-12">
-          <div className="space-y-6 md:space-y-8 animate-in slide-in-from-bottom duration-1000 max-w-xl">
-            <span className="inline-block px-4 py-2 bg-[#a38c6d] text-white rounded-full text-[9px] md:text-[10px] font-bold tracking-[0.4em] uppercase shadow-lg border border-white/20">
+        <div className="relative z-10 p-5 md:p-16 max-w-6xl mx-auto w-full mb-10 md:mb-12">
+          <div className="space-y-4 md:space-y-8 animate-in slide-in-from-bottom duration-1000 max-w-lg">
+            <span className="inline-block px-3 py-1.5 bg-[#a38c6d] text-white rounded-full text-[8px] md:text-[10px] font-bold tracking-[0.3em] uppercase shadow-lg">
               {EXPERT_DATA.profession}
             </span>
-            <div className="space-y-2">
-              <p className="text-xl md:text-3xl font-serif text-white/80 italic text-glow">Eu sou a</p>
-              <h1 className="text-6xl md:text-9xl font-serif font-bold text-white leading-[0.9] text-glow">
+            <div className="space-y-1">
+              <p className="text-lg md:text-3xl font-serif text-white/80 italic">Eu sou a</p>
+              <h1 className="text-5xl md:text-9xl font-serif font-bold text-white leading-[1] tracking-tight">
                 <span className="text-[#a38c6d]">Dra. Paloma</span> <br/> Lima
               </h1>
             </div>
-            <p className="text-xl md:text-2xl text-white/90 max-w-sm font-light leading-relaxed">
-              Realço sua beleza de forma <span className="text-[#a38c6d] font-semibold italic border-b-2 border-[#a38c6d]/50">natural e segura</span>.
+            <p className="text-base md:text-2xl text-white/90 max-w-[280px] md:max-w-md font-light leading-snug">
+              Realço sua beleza de forma <span className="text-[#a38c6d] font-semibold italic">natural e segura</span>.
             </p>
             
-            <div className="pt-6 space-y-4">
+            <div className="pt-4 space-y-4">
               <button 
                 onClick={onCtaClick}
-                className="w-full md:w-auto px-12 py-6 bg-[#a38c6d] text-white rounded-full font-bold text-xl shadow-[0_20px_50px_rgba(163,140,109,0.4)] hover:scale-105 btn-pulse flex items-center justify-center gap-4 tracking-wide border border-white/20"
+                className="w-full md:w-auto px-8 py-5 bg-[#a38c6d] text-white rounded-full font-bold text-lg shadow-2xl active:scale-95 transition-all flex items-center justify-center gap-3 tracking-wide border border-white/20"
               >
-                AGENDAR CONSULTA GRATUITA
-                <MessageSquare className="w-6 h-6" />
+                AGENDAR AVALIAÇÃO
+                <MessageSquare className="w-5 h-5" />
               </button>
-              <div className="flex flex-col md:flex-row gap-4 items-center text-[10px] md:text-[11px] text-white/50 font-bold tracking-[0.3em] uppercase">
-                <span className="flex items-center gap-2"><Sparkles className="w-3 h-3 text-[#a38c6d]"/> Referência no Ceará</span>
-                <span className="hidden md:block opacity-30">|</span>
-                <span>Registro {EXPERT_DATA.registry}</span>
+              <div className="flex items-center justify-start gap-3 text-[9px] md:text-[11px] text-white/50 font-bold tracking-[0.2em] uppercase">
+                <span className="flex items-center gap-1.5"><Sparkles className="w-3 h-3 text-[#a38c6d]"/> Ceará (88)</span>
+                <span className="opacity-30">|</span>
+                <span>{EXPERT_DATA.registry}</span>
               </div>
             </div>
           </div>
@@ -77,43 +58,38 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
       </section>
 
       {/* 2. QUEM SOU EU */}
-      <section className="py-32 px-6 md:px-12 bg-white relative">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+      <section className="py-16 md:py-32 px-5 md:px-12 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center">
           <div className="relative order-2 md:order-1">
-            <div className="absolute -inset-10 bg-[#a38c6d]/10 rounded-[5rem] rotate-3 blur-3xl opacity-50"></div>
             <img 
               src={IMAGES.authority2} 
               alt="Dra Paloma" 
-              className="relative rounded-[4rem] shadow-2xl w-full aspect-[4/5] object-cover border-8 border-[#ece9e6]"
+              className="relative rounded-[2rem] md:rounded-[4rem] shadow-2xl w-full aspect-[4/5] object-cover border-4 md:border-8 border-[#ece9e6]"
             />
-            <div className="absolute -bottom-8 -right-4 md:-right-8 bg-[#1c1a18] p-8 rounded-[3rem] shadow-2xl border border-white/10 max-w-[240px] hidden md:block">
-              <p className="text-[10px] font-bold text-[#a38c6d] uppercase mb-2 tracking-[0.2em]">Filosofia Paloma Lima</p>
-              <p className="text-base text-white/90 italic font-light leading-relaxed">"A melhor harmonização é aquela que devolve sua luz, mantendo sua identidade intacta."</p>
-            </div>
           </div>
-          <div className="space-y-12 order-1 md:order-2">
-            <div className="space-y-4">
-              <h2 className="text-5xl md:text-6xl font-serif font-bold text-[#1c1a18] leading-tight">Onde a ciência encontra a arte.</h2>
-              <div className="h-2 w-32 bg-[#a38c6d] rounded-full shadow-sm"></div>
+          <div className="space-y-6 md:space-y-12 order-1 md:order-2">
+            <div className="space-y-2">
+              <h2 className="text-3xl md:text-6xl font-serif font-bold text-[#1c1a18] leading-tight text-left">Onde a ciência encontra a arte.</h2>
+              <div className="h-1.5 w-16 bg-[#a38c6d] rounded-full"></div>
             </div>
-            <div className="space-y-8 text-[#2a2622]/80 leading-relaxed text-xl font-light">
+            <div className="space-y-4 text-[#2a2622]/80 leading-relaxed text-base md:text-xl font-light">
               <p>
-                Como especialista em Harmonização Facial no <span className="text-[#a38c6d] font-bold">Ceará</span>, meu foco é a <span className="font-semibold text-[#1c1a18]">Anatomia Facial Avançada</span>. Não trabalho com padrões impostos, mas com o que o seu rosto pede para brilhar.
+                Especialista em Harmonização Facial no <span className="text-[#a38c6d] font-bold">Ceará</span>, meu foco é a <span className="font-semibold text-[#1c1a18]">Anatomia Facial Avançada</span>.
               </p>
               <p>
-                Utilizo os protocolos mais sofisticados do mundo para garantir que cada aplicação seja invisível aos olhos destreinados, mas transformadora para a sua autoestima.
+                Utilizo protocolos que garantem uma aplicação invisível aos olhos, mas transformadora para sua autoestima.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {[
-                { label: 'Análise 3D Facial', icon: Sparkles },
-                { label: 'Insumos de Luxo', icon: ShieldCheck },
-                { label: 'Pós-Protocolo VIP', icon: Heart },
-                { label: 'Segurança Médica', icon: User }
+                { label: 'Análise 3D', icon: Sparkles },
+                { label: 'Insumos Luxo', icon: ShieldCheck },
+                { label: 'Pós-VIP', icon: Heart },
+                { label: 'Segurança', icon: User }
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-4 text-xs font-bold text-[#1c1a18] uppercase tracking-widest group">
-                  <div className="w-10 h-10 rounded-2xl bg-[#a38c6d]/10 flex items-center justify-center text-[#a38c6d] group-hover:bg-[#a38c6d] group-hover:text-white transition-all duration-300">
-                    <item.icon className="w-5 h-5" />
+                <div key={idx} className="flex items-center gap-3 text-[9px] md:text-xs font-bold text-[#1c1a18] uppercase tracking-widest">
+                  <div className="w-8 h-8 rounded-xl bg-[#a38c6d]/10 flex items-center justify-center text-[#a38c6d]">
+                    <item.icon className="w-4 h-4" />
                   </div>
                   {item.label}
                 </div>
@@ -124,99 +100,52 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
       </section>
 
       {/* 3. RESULTADOS REAIS */}
-      <section className="py-32 bg-[#ece9e6]">
-        <div className="px-6 md:px-12 max-w-6xl mx-auto space-y-20">
-          <div className="text-center space-y-6">
-            <span className="text-[#a38c6d] font-bold text-[12px] uppercase tracking-[0.5em]">Resultados de Excelência</span>
-            <h2 className="text-5xl md:text-7xl font-serif font-bold text-[#1c1a18]">Assinatura Paloma Lima</h2>
-            <div className="w-20 h-1 bg-[#a38c6d] mx-auto opacity-50"></div>
+      <section className="py-16 md:py-32 bg-[#ece9e6]">
+        <div className="px-5 md:px-12 max-w-6xl mx-auto space-y-12 md:space-y-20">
+          <div className="text-center space-y-3">
+            <span className="text-[#a38c6d] font-bold text-[10px] uppercase tracking-[0.4em]">Resultados Reais</span>
+            <h2 className="text-3xl md:text-7xl font-serif font-bold text-[#1c1a18]">Assinatura Paloma Lima</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-10">
             {IMAGES.results.slice(0, 8).map((url, idx) => (
               <div 
                 key={idx} 
-                className="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden cursor-zoom-in shadow-xl hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-700"
+                className="group relative aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-lg"
                 onClick={() => setSelectedImg(url)}
               >
-                <img src={url} alt={`Resultado ${idx}`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8">
-                  <div className="px-6 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white text-[10px] uppercase font-bold tracking-widest">
-                    Ver detalhes
-                  </div>
-                </div>
+                <img src={url} alt={`Resultado ${idx}`} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                <div className="absolute inset-0 bg-black/20 md:hidden"></div>
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-[#1c1a18]/40 italic max-w-lg mx-auto leading-relaxed">
-            Respeitamos a individualidade de cada face. Resultados podem variar conforme a anatomia e hábitos de cada paciente.
+          <p className="text-center text-[10px] md:text-sm text-[#1c1a18]/40 italic max-w-xs mx-auto">
+            Resultados individuais. Agende sua avaliação para entender seu caso.
           </p>
         </div>
       </section>
 
-      {/* 4. POR QUE CONFIAR */}
-      <section className="py-32 px-6 md:px-12 bg-[#1c1a18] text-white overflow-hidden relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20 space-y-4">
-            <h2 className="text-5xl md:text-6xl font-serif font-bold">Padrão Ouro de Atendimento</h2>
-            <p className="text-[#a38c6d] font-bold text-sm uppercase tracking-[0.3em]">Onde cada detalhe importa.</p>
+      {/* 4. COMO FUNCIONA */}
+      <section className="py-16 md:py-32 px-5 bg-white">
+        <div className="max-w-6xl mx-auto space-y-10 md:space-y-20">
+          <div className="text-center space-y-2">
+            <span className="text-[#a38c6d] font-bold text-[10px] uppercase tracking-[0.4em]">Sua Jornada</span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#1c1a18]">Apenas 3 Passos</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-8">
             {[
-              { icon: ShieldCheck, title: "Protocolo de Segurança", text: "Insumos premium das melhores marcas mundiais para sua total tranquilidade." },
-              { icon: User, title: "Atendimento Exclusivo", text: "Minha agenda é limitada para que eu possa dedicar tempo real a cada face." },
-              { icon: Heart, title: "Naturalidade Acima de Tudo", text: "Meu olhar é treinado para realçar, nunca para transformar em algo artificial." },
-              { icon: Sparkles, title: "Técnicas Modernas", text: "Constante atualização com as maiores autoridades mundiais em estética." },
-              { icon: MessageSquare, title: "Pós-Tratamento", text: "Suporte direto e acompanhamento de cada etapa da sua recuperação." },
-              { icon: ShieldCheck, title: "Ambiente Boutique", text: "Um consultório planejado para ser seu santuário de beleza e conforto." },
-            ].map((card, idx) => (
-              <div key={idx} className="bg-white/5 p-12 rounded-[3.5rem] border border-white/5 hover:bg-white/10 transition-all duration-500 group">
-                <div className="w-16 h-16 rounded-3xl bg-[#a38c6d] flex items-center justify-center text-white mb-8 shadow-[0_10px_30px_rgba(163,140,109,0.3)]">
-                  <card.icon className="w-8 h-8" />
-                </div>
-                <h3 className="text-2xl font-serif font-bold mb-4 group-hover:text-[#a38c6d] transition-colors">{card.title}</h3>
-                <p className="text-white/50 text-base leading-relaxed font-light">{card.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. CTA INTERMEDIÁRIO */}
-      <section className="py-32 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#a38c6d] to-[#c5a373] rounded-[4rem] p-12 md:p-24 text-center text-white shadow-[0_40px_100px_rgba(163,140,109,0.3)] relative overflow-hidden border border-white/20">
-          <div className="relative z-10 space-y-12">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight drop-shadow-lg">Você pronta para o seu <br/> melhor momento.</h2>
-            <button 
-              onClick={onCtaClick}
-              className="px-16 py-7 bg-[#1c1a18] text-white rounded-full font-bold text-xl shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-5 mx-auto tracking-wider"
-            >
-              AGENDAR MINHA AVALIAÇÃO
-              <ArrowRight className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. COMO FUNCIONA A PRIMEIRA CONSULTA */}
-      <section className="py-32 px-6 bg-white">
-        <div className="max-w-6xl mx-auto space-y-20">
-          <div className="text-center space-y-4">
-            <span className="text-[#a38c6d] font-bold text-[12px] uppercase tracking-[0.5em]">Jornada da Paciente</span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1c1a18]">Sua transformação em 3 passos</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { step: '01', title: 'Contato VIP', text: 'Você inicia o atendimento pelo WhatsApp, onde nossa equipe entende seu desejo inicial.' },
-              { step: '02', title: 'Agendamento', text: 'Escolhemos o melhor horário para sua avaliação presencial ou online sem compromisso.' },
-              { step: '03', title: 'Avaliação Estética', text: 'Análise facial profunda com a Dra. Paloma para criar seu plano de tratamento exclusivo.' }
+              { step: '01', title: 'WhatsApp', text: 'Equipe dedicada para entender seu desejo inicial.' },
+              { step: '02', title: 'Agendamento', text: 'Escolhemos o melhor horário para você.' },
+              { step: '03', title: 'Avaliação', text: 'Plano de tratamento exclusivo com a Dra.' }
             ].map((item, idx) => (
-              <div key={idx} className="relative p-10 bg-[#ece9e6] rounded-[3rem] border border-white shadow-sm hover:shadow-xl transition-all group">
-                <span className="text-6xl font-serif font-bold text-[#a38c6d]/20 absolute top-6 right-8 group-hover:text-[#a38c6d]/40 transition-colors">{item.step}</span>
-                <h3 className="text-2xl font-serif font-bold text-[#1c1a18] mb-4">{item.title}</h3>
-                <p className="text-[#2a2622]/60 leading-relaxed">{item.text}</p>
-                <div className="mt-6 flex items-center gap-2 text-[#a38c6d] font-bold text-[10px] uppercase tracking-widest">
-                  <CheckCircle className="w-4 h-4" /> Gratuito e Seguro
+              <div key={idx} className="relative p-6 md:p-10 bg-[#ece9e6] rounded-3xl border border-white shadow-sm flex flex-col justify-between">
+                <div>
+                  <span className="text-4xl font-serif font-bold text-[#a38c6d]/20 mb-2 block">{item.step}</span>
+                  <h3 className="text-xl font-serif font-bold text-[#1c1a18] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#2a2622]/60">{item.text}</p>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-[#a38c6d] font-bold text-[9px] uppercase tracking-widest">
+                  <CheckCircle className="w-3 h-3" /> Confirmado
                 </div>
               </div>
             ))}
@@ -224,87 +153,64 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
         </div>
       </section>
 
-      {/* 7. MAIS PROVAS */}
-      <section className="py-32 bg-[#ece9e6]">
-        <div className="px-6 md:px-12 max-w-6xl mx-auto mb-16 space-y-4 text-center">
-          <span className="text-[#a38c6d] font-bold text-[12px] uppercase tracking-[0.5em]">O Mundo Paloma Lima</span>
-          <h2 className="text-5xl font-serif font-bold text-[#1c1a18]">Bastidores & Autoridade</h2>
+      {/* 5. BASTIDORES & MUNDO PALOMA LIMA */}
+      <section className="py-16 md:py-32 bg-[#1c1a18] overflow-hidden">
+        <div className="px-5 md:px-12 max-w-6xl mx-auto mb-10 space-y-2 text-center">
+          <span className="text-[#a38c6d] font-bold text-[10px] uppercase tracking-[0.4em]">Bastidores & Autoridade</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white">O Mundo Paloma Lima</h2>
         </div>
-        <div className="flex gap-8 overflow-x-auto pb-16 px-6 no-scrollbar snap-x">
+        <div className="flex gap-4 overflow-x-auto pb-10 px-5 no-scrollbar snap-x">
           {IMAGES.lifestyle.map((url, idx) => (
-            <div key={idx} className="flex-none w-80 md:w-96 h-[30rem] md:h-[35rem] rounded-[3rem] overflow-hidden shadow-2xl snap-center transition-all hover:scale-[1.02] border-8 border-white">
-              <img src={url} alt={`Dra Paloma ${idx}`} className="w-full h-full object-cover" />
+            <div 
+              key={idx} 
+              className="flex-none w-[260px] md:w-[400px] h-[350px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl snap-center border-4 border-white/10"
+              onClick={() => setSelectedImg(url)}
+            >
+              <img src={url} alt={`Bastidores ${idx}`} className="w-full h-full object-cover" />
             </div>
           ))}
         </div>
-      </section>
-
-      {/* 8. CTA FINAL */}
-      <section className="py-40 px-6 bg-white relative">
-        <div className="max-w-4xl mx-auto text-center space-y-16">
-          <div className="space-y-8">
-            <h2 className="text-6xl md:text-8xl font-serif font-bold text-[#1c1a18] leading-[0.9]">
-              Beleza que <span className="text-[#a38c6d]">irradia.</span>
-            </h2>
-            <p className="text-2xl md:text-3xl text-[#1c1a18]/40 font-light italic max-w-2xl mx-auto">
-              "Um rosto harmonioso abre portas, eleva sorrisos e transforma a maneira como você encara o mundo."
-            </p>
-          </div>
-          <div className="space-y-10">
-            <button 
-              onClick={onCtaClick}
-              className="w-full md:w-auto px-20 py-8 bg-[#a38c6d] text-white rounded-full font-bold text-2xl shadow-[0_25px_60px_rgba(163,140,109,0.4)] hover:scale-105 transition-all flex items-center justify-center gap-6 mx-auto tracking-widest border border-white/20"
-            >
-              QUERO MINHA CONSULTA
-              <MessageSquare className="w-8 h-8" />
-            </button>
-            <div className="flex items-center justify-center gap-4 text-[#a38c6d] font-bold text-[13px] uppercase tracking-[0.4em]">
-               <Sparkles className="w-5 h-5"/>
-               <span>Avaliação 100% Gratuita</span>
-               <Sparkles className="w-5 h-5"/>
-            </div>
-          </div>
+        <div className="text-center">
+            <p className="text-white/30 text-[9px] uppercase tracking-[0.3em] font-bold">Deslize para ver mais →</p>
         </div>
       </section>
 
-      {/* 9. RODAPÉ */}
-      <footer className="py-32 px-6 bg-[#1c1a18] text-white relative">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 relative z-10">
-          <div className="space-y-12">
-            <div className="space-y-8">
-              <div className="inline-block p-6 bg-white rounded-[2.5rem] shadow-2xl">
-                <img 
-                  src={IMAGES.logo} 
-                  alt="Logo Premium" 
-                  className="h-14 md:h-20 w-auto grayscale brightness-0" 
-                />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-5xl font-serif font-bold">{EXPERT_DATA.name}</h3>
-                <p className="text-[#a38c6d] font-bold text-base tracking-[0.4em] uppercase">{EXPERT_DATA.profession}</p>
-                <p className="text-white/20 text-xs tracking-widest uppercase">{EXPERT_DATA.registry}</p>
-              </div>
+      {/* 6. CTA FINAL */}
+      <section className="py-20 px-5 bg-[#ece9e6]">
+        <div className="max-w-4xl mx-auto text-center space-y-10">
+          <h2 className="text-4xl md:text-7xl font-serif font-bold text-[#1c1a18] leading-tight">
+            Beleza que <span className="text-[#a38c6d]">irradia.</span>
+          </h2>
+          <button 
+            onClick={onCtaClick}
+            className="w-full md:w-auto px-10 py-6 bg-[#a38c6d] text-white rounded-full font-bold text-lg shadow-2xl active:scale-95 transition-all flex items-center justify-center gap-4 mx-auto border border-white/20"
+          >
+            QUERO MINHA CONSULTA
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* RODAPÉ */}
+      <footer className="py-16 md:py-32 px-5 bg-[#1c1a18] text-white">
+        <div className="max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-24">
+          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="p-4 bg-white rounded-2xl inline-block">
+              <img src={IMAGES.logo} alt="Logo" className="h-8 md:h-12 w-auto grayscale brightness-0" />
             </div>
-            <div className="flex items-center gap-8">
-              <a href={EXPERT_DATA.instagram} target="_blank" className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-[#a38c6d] hover:border-[#a38c6d] hover:bg-white/10 transition-all duration-500">
-                <Instagram className="w-8 h-8" />
-              </a>
-              <button onClick={onCtaClick} className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-[#a38c6d] hover:border-[#a38c6d] hover:bg-white/10 transition-all duration-500">
-                <MessageSquare className="w-8 h-8" />
-              </button>
+            <div className="space-y-1">
+              <h3 className="text-3xl md:text-5xl font-serif font-bold">{EXPERT_DATA.name}</h3>
+              <p className="text-[#a38c6d] font-bold text-xs tracking-widest uppercase">{EXPERT_DATA.profession}</p>
+              <p className="text-white/20 text-[9px] tracking-widest uppercase">{EXPERT_DATA.registry}</p>
+            </div>
+            <div className="flex gap-4">
+              <a href={EXPERT_DATA.instagram} target="_blank" className="p-4 bg-white/5 rounded-full border border-white/10 text-white/50 hover:text-white"><Instagram size={20}/></a>
+              <button onClick={onCtaClick} className="p-4 bg-white/5 rounded-full border border-white/10 text-white/50 hover:text-white"><MessageSquare size={20}/></button>
             </div>
           </div>
-          <div className="md:text-right space-y-16 flex flex-col justify-between">
-             <div className="space-y-6">
-                <p className="text-white/40 text-lg max-w-sm md:ml-auto leading-relaxed">Referência em resultados naturais em todo o Ceará.</p>
-                <p className="text-[#a38c6d] font-serif text-3xl italic">A arte de harmonizar com segurança.</p>
-             </div>
-            <div className="pt-16 border-t border-white/5">
-               <p className="text-[11px] text-white/10 uppercase tracking-[0.5em] mb-6">Designed for Excellence</p>
-               <p className="font-serif text-7xl text-white/5 italic select-none pointer-events-none tracking-tight">
-                Paloma Lima
-               </p>
-            </div>
+          <div className="flex flex-col justify-between items-center md:items-end text-center md:text-right space-y-10 md:space-y-0">
+             <p className="text-white/40 text-sm md:text-lg max-w-xs md:ml-auto leading-relaxed">Referência em resultados naturais no Ceará.</p>
+             <p className="font-serif text-5xl md:text-7xl text-white/5 italic select-none">Paloma Lima</p>
           </div>
         </div>
       </footer>
@@ -312,16 +218,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
       {/* Lightbox */}
       {selectedImg && (
         <div 
-          className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 cursor-zoom-out animate-in fade-in duration-500"
+          className="fixed inset-0 z-[200] bg-black/98 backdrop-blur-xl flex items-center justify-center p-5 cursor-zoom-out"
           onClick={() => setSelectedImg(null)}
         >
-          <div className="relative max-w-4xl w-full flex items-center justify-center">
-            <img 
-              src={selectedImg} 
-              className="max-w-full max-h-[85vh] rounded-[3rem] shadow-[0_0_120px_rgba(163,140,109,0.3)] border border-white/10 animate-in zoom-in duration-500" 
-              alt="Fullscreen View" 
-            />
-          </div>
+          <img 
+            src={selectedImg} 
+            className="max-w-full max-h-[80vh] rounded-2xl shadow-2xl border border-white/10 animate-in zoom-in duration-300" 
+            alt="Fullscreen View" 
+          />
         </div>
       )}
     </div>
