@@ -44,11 +44,11 @@ const App: React.FC = () => {
     }
   };
 
-  // Prevenir scroll do background quando overlays estão ativos
+  // Prevenir scroll do background quando overlays estão ativos sem mudar o layout
   const isOverlayActive = currentState !== AppState.MAIN;
 
   return (
-    <div className={`min-h-screen w-full relative ${isOverlayActive ? 'h-screen overflow-hidden' : 'overflow-x-hidden'}`}>
+    <div className={`min-h-screen w-full relative ${isOverlayActive ? 'overflow-hidden' : 'overflow-x-hidden'}`}>
       <LandingPage onCtaClick={() => window.open(`https://wa.me/${EXPERT_DATA.whatsapp}`, '_blank')} />
 
       {currentState === AppState.INITIAL && (

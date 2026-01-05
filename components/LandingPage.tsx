@@ -12,13 +12,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
 
   return (
     <div className="bg-[#ece9e6] text-[#2a2622] antialiased overflow-x-hidden">
-      {/* 1. HERO SECTION - Estabilizada para evitar movimentação indesejada */}
+      {/* 1. HERO SECTION - Totalmente Estática e Pincelada */}
       <section className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <img 
             src={IMAGES.hero} 
             alt="Dra. Paloma Lima" 
-            className="w-full h-full object-cover object-[75%_center] md:object-right transition-none"
+            className="w-full h-full object-cover object-[75%_center] md:object-right transform-gpu"
+            style={{ backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18] via-[#1c1a18]/40 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1c1a18]/70 via-transparent to-transparent md:from-[#1c1a18]/90"></div>
