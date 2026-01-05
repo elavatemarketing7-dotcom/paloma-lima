@@ -2,6 +2,7 @@
 export enum AppState {
   INITIAL = 'INITIAL',
   QUIZ = 'QUIZ',
+  ANALYZING = 'ANALYZING',
   RESULT = 'RESULT',
   MAIN = 'MAIN'
 }

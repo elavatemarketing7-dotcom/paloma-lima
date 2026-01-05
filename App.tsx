@@ -1,11 +1,12 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { AppState, QuizAnswers } from './types.ts';
 import { EXPERT_DATA } from './constants.ts';
 import LandingPage from './components/LandingPage.tsx';
 import Quiz from './components/Quiz.tsx';
 import ResultPage from './components/ResultPage.tsx';
 import InitialOverlay from './components/InitialOverlay.tsx';
+import AnalyzingProfile from './components/AnalyzingProfile.tsx';
 
 const App: React.FC = () => {
   const [currentState, setCurrentState] = useState<AppState>(AppState.INITIAL);
@@ -16,8 +17,18 @@ const App: React.FC = () => {
   
   const handleQuizComplete = useCallback((finalAnswers: QuizAnswers) => {
     setAnswers(finalAnswers);
-    setCurrentState(AppState.RESULT);
+    setCurrentState(AppState.ANALYZING);
   }, []);
+
+  // Simula o tempo de análise
+  useEffect(() => {
+    if (currentState === AppState.ANALYZING) {
+      const timer = setTimeout(() => {
+        setCurrentState(AppState.RESULT);
+      }, 4500); // 4.5 segundos para uma análise convincente
+      return () => clearTimeout(timer);
+    }
+  }, [currentState]);
 
   const handleFinalAction = (action: 'send' | 'continue' | 'whatsapp') => {
     if (action === 'send' || action === 'whatsapp') {
@@ -43,6 +54,10 @@ const App: React.FC = () => {
 
       {currentState === AppState.QUIZ && (
         <Quiz onComplete={handleQuizComplete} onSkip={handleGoToSite} />
+      )}
+
+      {currentState === AppState.ANALYZING && (
+        <AnalyzingProfile />
       )}
 
       {currentState === AppState.RESULT && (
