@@ -12,20 +12,20 @@ const LandingPage: React.FC<LandingPageProps> = ({ onCtaClick }) => {
 
   return (
     <div className="bg-[#ece9e6] text-[#2a2622] antialiased overflow-x-hidden">
-      {/* 1. HERO SECTION - Agora começando do topo sem distrações flutuantes */}
+      {/* 1. HERO SECTION - Estabilizada para evitar movimentação indesejada */}
       <section className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={IMAGES.hero} 
             alt="Dra. Paloma Lima" 
-            className="w-full h-full object-cover object-[75%_center] md:object-right scale-105"
+            className="w-full h-full object-cover object-[75%_center] md:object-right transition-none"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18] via-[#1c1a18]/40 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1c1a18]/70 via-transparent to-transparent md:from-[#1c1a18]/90"></div>
         </div>
 
         <div className="relative z-10 p-5 md:p-16 max-w-6xl mx-auto w-full mb-10 md:mb-12">
-          <div className="space-y-4 md:space-y-8 animate-in slide-in-from-bottom duration-1000 max-w-lg">
+          <div className="space-y-4 md:space-y-8 animate-in slide-in-from-bottom duration-700 max-w-lg">
             <span className="inline-block px-3 py-1.5 bg-[#a38c6d] text-white rounded-full text-[8px] md:text-[10px] font-bold tracking-[0.3em] uppercase shadow-lg">
               {EXPERT_DATA.profession}
             </span>
